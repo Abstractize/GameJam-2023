@@ -1,0 +1,5 @@
+root=true
+
+# Ignore Path
+[**/Photon/**/*.cs]
+generated_code = true
