@@ -37,6 +37,10 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
+      
+      - name: Return license
+        uses: game-ci/unity-return-license@v2
+        if: always()
 
       # Deploy
       - name: Deploy
