@@ -11,9 +11,6 @@ namespace Player
         [SerializeField] private new Rigidbody rigidbody;
 
         private Vector2 move;
-        public void Move(Vector2 position)
-            => move = position;
-
         public void OnFire(InputAction.CallbackContext context)
         {
             throw new System.NotImplementedException();
