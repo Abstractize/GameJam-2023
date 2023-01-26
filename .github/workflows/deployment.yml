@@ -16,12 +16,12 @@ jobs:
     name: Build and Deploy Job
     steps:
       # Checkout
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
-      
+
       # Cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
@@ -37,7 +37,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-      
+
       - name: Return license
         uses: game-ci/unity-return-license@v2
         if: always()
