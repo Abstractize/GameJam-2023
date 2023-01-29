@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>%UNITY_WEB_NAME%</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.javascript"></script>
-    <script src="%UNITY_WEBGL_LOADER_URL%"></script>
+    <title>unity webgl responsive</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+
+    <!-- unity resources -->
+    <script src="Build/UnityLoader.js"></script>
     <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", {onProgress: UnityProgress});
+        var unityInstance = UnityLoader.instantiate("unityContainer", "Build/example.json");
     </script>
 </head>
+
 <body>
-<div class="webgl-content">
-    <div id="gameContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px"></div>
-</div>
-<div class="simmer">template by: <a href="https://simmer.io" target="_blank">SIMMER.io</a></div>
-<script src="TemplateData/responsive.javascript"></script>
+    <div class="webgl-wrapper">
+        <div class="aspect"></div>
+        <div class="webgl-content">
+            <div id="unityContainer"></div>
+        </div>
+    </div>
+
+    <div class="info">
+        <p>unity webgl responsive</p>
+        <p>press F or <a href="#" onclick="unityInstance.SetFullscreen(1)">click here</a> to toggle fullscreen</p>
+    </div>
+
+    <!-- check for F key press to toggle full screen -->
+    <script>
+        var isFullscreen = false;
+
+        document.addEventListener('keydown', function (event) {
+            if (event.which === 70) {
+                if (!isFullscreen) {
+                    unityInstance.SetFullscreen(1);
+                } else {
+                    unityInstance.SetFullscreen(0);
+                }
+                isFullscreen = !isFullscreen;
+            }
+        });
+    </script>
 </body>
+
 </html>
