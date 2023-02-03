@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="application/gzip; charset=utf-8">
+  <meta http-equiv="Cache-Control" content="public, max-age=604800">
+  <meta name="viewport" content="width=device-width,  minimal-ui, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Metaverse</title>
+
+  <link rel="shortcut icon" href="TemplateData/favicon.png">
+  <link rel="stylesheet" href="TemplateData/style.css">
+</head>
+
+<body>
+
+  <div id="unity-container" class="unity-container">
+
+    <div class="rotated-phone">
+      <img src="TemplateData/phone.png" alt="Voltear celular">
+      <h1>Voltea el dispositivo <br> para continuar</h1>
+    </div>
+
+    <canvas id="unity-canvas" class="unity-canvas"></canvas>
+
+    <div id="unity-loading-bar" class="unity-loading__container">
+      <section id="loading">
+        <div class="neon-bar">
+          <progress class='bar' value='0' max='100'></progress>
+          <h2 id="loading-message">0%</h2>
+        </div>
+        <div class="loading-text">
+          <h2>Game Name</h2>
+        </div>
+      </section>
+      <section id="play" class="play-button__container">
+        <button onclick="startGame()">
+          <h2>Iniciar</h2>
+        </button>
+      </section>
+    </div>
+
+    <div id="unity-warning"> </div>
+
+  </div>
+
+  <script>
+    var canvas = document.getElementById("unity-canvas");
+    var warningBanner = document.querySelector("#unity-warning");
+
+    var loadingBarContainer = document.getElementById("unity-loading-bar");
+    var loadingBar = document.querySelector(".bar");
+    var loadingMessage = document.getElementById("loading-message");
+
+    function startGame() {
+      loadingBarContainer.style.display = "none";
+      canvas.style.display = "inline-block";
+      setTimeout(function () { loadingBarContainer.style.display = "none"; }, 1000);
+      setTimeout(function () { canvas.style.display = "inline-block";; }, 1000);
+
+      if (!document.fullscreenElement) {
+        try {
+          document.documentElement.requestFullscreen();
+        } catch (error) { }
+      }
+    }
+
+    const maxPixelRatioMobile = 2.0;
+    const maxPixelRatioDesktop = 1.5;
+
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    var maxDevicePixelRatio = isMobile ? maxPixelRatioMobile : maxPixelRatioDesktop;
+    var pixelRatio = Math.min(window.devicePixelRatio, maxDevicePixelRatio);
+
+    var buildUrl = "Build";
+    var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+    var config = {
+      dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+      frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+      codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "{{{ COMPANY_NAME }}}",
+      productName: "{{{ PRODUCT_NAME }}}",
+      productVersion: "{{{ PRODUCT_VERSION }}}",
+      devicePixelRatio: pixelRatio,
+    };
+
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+
+        let loading = (100 * progress);
+        let loadingText = Math.floor(loading) + "%";
+
+        loadingBar.value = loading;
+        loadingMessage.innerHTML = loadingText;
+
+      }).then((unityInstance) => {
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("play").style.display = "inline-block";
+
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+
+</html>

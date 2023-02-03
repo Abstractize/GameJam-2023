@@ -1,0 +1,205 @@
+/*@font-face {
+	font-family: "Adineue Pro";
+	src: url(./AdihausDIN-Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}*/
+
+:root {
+	--progress-height: 1.4em;
+	--progress-width: 300px;
+	--progress-padding: 0.3em;
+	--progress-value-color: #00F8FD;
+	--value-color: #ffffff;
+	--value-size: 1.2em;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+h1,
+h2,
+p {
+	font-family: "Adineue Pro";
+	font-style: normal;
+}
+
+.unity-container {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	background: rgb(0, 0, 0);
+}
+
+.unity-canvas {
+	width: 100%;
+	height: 100vh;
+	background: #231F20;
+	display: none;
+}
+
+#unity-logo {
+	width: 154px;
+	height: 130px;
+	background: url('unity-logo-dark.png') no-repeat center
+}
+
+#unity-warning {
+	position: absolute;
+	left: 50%;
+	top: 5%;
+	transform: translate(-50%);
+	background: white;
+	padding: 10px;
+	display: none
+}
+
+.unity-loading__container {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/*Loading bar*/
+
+.neon-bar {
+	display: flex;
+}
+
+#loading-message {
+	color: #ffffff;
+	margin-left: 1rem;
+	font-size: 1.6rem;
+}
+
+.bar {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 1.4em;
+	width: 300px;
+}
+
+.bar::-webkit-progress-bar {
+	padding: 0em;
+	border-radius: calc(1.4em / 2);
+	background: #444343;
+}
+
+.bar::-webkit-progress-value {
+	background: var(--progress-value-color);
+	-webkit-box-shadow: 0 0 0.6em var(--progress-value-color), 0 0 0.8em #5efff5;
+	border-radius: calc(1.4em/2);
+}
+
+.play-button__container {
+	margin-top: 2rem;
+	display: none;
+}
+
+.loading-text h2 {
+	color: #FFFFFF;
+	margin: 1rem 0rem;
+	font-size: 2.1rem;
+	text-align: center;
+}
+
+button {
+	width: 15rem;
+	height: 4rem;
+	border-radius: 5px;
+	border: none;
+	background-color: transparent;
+	border: 2px solid var(--progress-value-color);
+	-webkit-box-shadow: 0 0 0.6em var(--progress-value-color), 0 0 0.8em #5efff5;
+	box-shadow: 0 0 0.6em var(--progress-value-color), 0 0 0.8em #5efff5;
+	transition: all .5s;
+}
+
+button h2 {
+	font-size: 2rem;
+	color: #FFFFFF;
+}
+
+button:hover {
+	transition: all .5s;
+	cursor: pointer;
+	-webkit-box-shadow: 0 0 1.2em var(--progress-value-color), 0 0 0.8em #5efff5;
+	box-shadow: 0 0 1.2em var(--progress-value-color), 0 0 0.8em #5efff5;
+}
+
+@media screen and (max-width: 900px) {
+	.loading-text h2 {
+		font-size: 1.8rem;
+	}
+}
+
+/*Rotate phone*/
+
+.rotated-phone {
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	-webkit-backdrop-filter: blur(40px);
+	backdrop-filter: blur(40px);
+	position: absolute;
+	display: none;
+}
+
+.rotated-phone img {
+	width: 120px;
+	height: auto;
+	margin-bottom: 20px;
+	animation-name: phone-rotate;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+
+}
+
+.rotated-phone h1 {
+	font-weight: 500;
+	font-size: 2.5rem;
+	margin: 0px 60px;
+	margin-top: 50px;
+	color: #FFFF;
+	text-align: center;
+}
+
+@keyframes phone-rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotate(-90deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+		;
+	}
+}
+
+@media (max-aspect-ratio: 7/8) {
+	.rotated-phone {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
