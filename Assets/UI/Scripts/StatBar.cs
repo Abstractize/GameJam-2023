@@ -89,13 +89,15 @@ namespace UIHud
                 ate.style.width = ate.width;
                 ate.style.height = ate.height;
 
+                ate.RegisterValueChangedCallback(ate.UpdateStat());
+
                 ate.FillBar();
             }
         }
 
         public void UpdateStat(ChangeEvent<float> evt)
         {
-
+            FillBar();
         }
 
         public void FillBar()

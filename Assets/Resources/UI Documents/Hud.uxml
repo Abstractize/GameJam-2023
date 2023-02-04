@@ -1,3 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Hud.StatBar value="0" />
+    <ui:VisualElement name="screen" style="flex-grow: 1; justify-content: flex-start; align-items: flex-end;">
+        <UIHud.StatBar style="top: 50px; left: auto; right: 50px; transform-origin: center; position: absolute;" />
+    </ui:VisualElement>
 </ui:UXML>
