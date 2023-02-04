@@ -118,8 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb1601968b854e108fe144fa7bbd64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundColor: {r: 0.13264833, g: 0.9811321, b: 0.06016379, a: 0}
-  _shadowColor: {r: 0.074417636, g: 0.3679245, b: 0.04685831, a: 0}
   _renderer: {fileID: 5182758453437327517}
   _shader: {fileID: -6465566751694194690, guid: 5ddbf08c1c8fc4a8d9cae5870959ec74,
     type: 3}
@@ -156,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 8173089860753526361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2037914409937437803}
@@ -176,7 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _smoothing: 0.9
   _animator: {fileID: 1971830885529460563}
   _agent: {fileID: 5711007307141529725}
 --- !u!114 &860003200792011895
@@ -255,7 +252,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 3
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4138736286920454300
 MonoBehaviour:

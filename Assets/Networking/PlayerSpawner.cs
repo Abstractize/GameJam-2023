@@ -6,6 +6,7 @@ using Fusion;
 using Fusion.Sockets;
 using Player;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Networking
 {
@@ -38,11 +39,14 @@ namespace Networking
         {
             if (runner.Topology == SimulationConfig.Topologies.Shared)
             {
-                var player = runner.Spawn(_playerPrefab, transform.position, Quaternion.identity, runner.LocalPlayer);
-                _camera.Follow = player.transform;
-                _controller.gameObject.SetActive(true);
-                _controller.Player = player.GetComponent<Player.NetworkPlayer>();
-                _controller.Player.GetComponentInChildren<SpriteSetter>().BackgroundColor = UnityEngine.Random.ColorHSV();
+                if (NavMesh.SamplePosition(transform.position, out NavMeshHit closestHit, 500f, NavMesh.AllAreas))
+                {
+                    var player = runner.Spawn(_playerPrefab, closestHit.position, Quaternion.identity, runner.LocalPlayer);
+                    _camera.Follow = player.transform;
+                    _controller.gameObject.SetActive(true);
+                    _controller.Player = player.GetComponent<Player.NetworkPlayer>();
+                    player.GetComponentInChildren<SpriteSetter>().BackgroundColor = UnityEngine.Random.ColorHSV();
+                }
             }
         }
 
