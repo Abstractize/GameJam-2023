@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using Cinemachine;
 using Fusion;
 using Fusion.Sockets;
+using Player;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Networking
 {
     public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         [SerializeField] private NetworkPrefabRef _playerPrefab;
-        [SerializeField] private new CinemachineVirtualCamera camera;
+        [SerializeField] private CinemachineVirtualCamera _camera;
+        [SerializeField] private PlayerController _controller;
         public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
         {
             if (runner.IsServer)
@@ -36,10 +39,11 @@ namespace Networking
             if (runner.Topology == SimulationConfig.Topologies.Shared)
             {
                 var player = runner.Spawn(_playerPrefab, transform.position, Quaternion.identity, runner.LocalPlayer);
-                camera.LookAt = player.transform;
-                camera.Follow = player.transform;
+                _camera.LookAt = player.transform;
+                _camera.Follow = player.transform;
+                _controller.gameObject.SetActive(true);
+                _controller.Player = player.GetComponent<Player.NetworkPlayer>();
             }
-
         }
 
         public void OnDisconnectedFromServer(NetworkRunner runner)
