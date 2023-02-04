@@ -6,8 +6,7 @@ namespace Components
     [RequireComponent(typeof(SpriteRenderer))]
     public sealed class SpriteSetter : MonoBehaviour
     {
-        [SerializeField] private Color _backgroundColor;
-        [SerializeField] private Color _shadowColor;
+        [HideInInspector] public Color BackgroundColor { get; set; }
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private Shader _shader;
         [HideInInspector][SerializeField] private Sprite _backgroundSprite;
@@ -22,8 +21,7 @@ namespace Components
             _renderer ??= GetComponent<SpriteRenderer>();
             _material ??= new Material(_shader);
             _renderer.material = _material;
-            _material.SetColor("_BaseColor", _backgroundColor);
-            _material.SetColor("_ShadowColor", _shadowColor);
+            _material.SetColor("_BaseColor", BackgroundColor);
         }
 
         void LateUpdate()
