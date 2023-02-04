@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class StatsBar : MonoBehaviour
 {
-    public int hunger { get; set; } = 20;
-    public int sleep { get; set; } = 20;
-    public int hygiene { get; set; } = 20;
-    public int fun { get; set; } = 20;
+    public Slider hunger;
+    public Slider fun;
+    public Slider hygiene;
+    public Slider sleep;
+    public PlayerStats stats;
 
-    public void Start()
+    public void Update()
     {
-        Mathf.Clamp(hunger, 0, 20);
-        Mathf.Clamp(sleep, 0, 20);
-        Mathf.Clamp(hygiene, 0, 20);
-        Mathf.Clamp(fun, 0, 20);
+        hunger.value = stats.hunger;
+        fun.value = stats.fun;
+        hygiene.value = stats.hygiene;
+        sleep.value = stats.sleep;
     }
 }

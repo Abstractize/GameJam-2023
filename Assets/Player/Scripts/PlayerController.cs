@@ -57,13 +57,26 @@ namespace Player
         {
             while (_isEnabledStats)
             {
-                Stats.hunger -= DECAY;
-                Stats.sleep -= DECAY;
-                Stats.fun -= DECAY;
-                Stats.hygiene -= DECAY;
+                int i = Random.Range(1, 5);
+
+                switch (i)
+                {
+                    case 1:
+                        Stats.hunger -= DECAY;
+                        break;
+                    case 2:
+                        Stats.fun -= DECAY;
+                        break;
+                    case 3:
+                        Stats.sleep -= DECAY;
+                        break;
+                    case 4:
+                        Stats.hygiene -= DECAY;
+                        break;
+                }
 
                 Debug.Log($"Stats lower");
-                yield return new WaitForSeconds(_waitTime);
+                yield return new WaitForSeconds(_waitTime / 3);
             }
         }
     }
