@@ -9,8 +9,12 @@ namespace Player
     public class PlayerController : MonoBehaviour, IPlayerActions
     {
         [SerializeField] public NetworkPlayer Player { get; set; }
-        [HideInInspector] public GameAction Action { get; set; }
-        [HideInInspector] public Wallet Wallet { get; set; }
+        [HideInInspector] public GameAction Action { get; set; } = new();
+        [HideInInspector] public Wallet Wallet { get; set; } = new();
+        [SerializeField]
+        [Range(10, 100)]
+        private float _waitTime = 15;
+        [SerializeField] private bool _isGeneratingMoney = true;
 
         private const int EARNING = 10;
         public int Level { get; private set; } = 1;
@@ -33,9 +37,15 @@ namespace Player
 
         private IEnumerator GenerateMoney()
         {
-            Wallet.Money += Level * EARNING;
-            // Wallet Animation
-            yield return new WaitForSeconds(1.0f);
+            while (_isGeneratingMoney)
+            {
+                Wallet.Money += Level * EARNING;
+
+                // Trigger Wallet Animation
+
+                Debug.Log($"You have {Wallet.Money} money");
+                yield return new WaitForSeconds(_waitTime);
+            }
         }
     }
 }
