@@ -7,6 +7,7 @@ namespace Components
     public sealed class SpriteSetter : MonoBehaviour
     {
         [SerializeField] private Color _backgroundColor;
+        [SerializeField] private Color _shadowColor;
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private Shader _shader;
         [HideInInspector][SerializeField] private Sprite _backgroundSprite;
@@ -22,6 +23,7 @@ namespace Components
             _material ??= new Material(_shader);
             _renderer.material = _material;
             _material.SetColor("_BaseColor", _backgroundColor);
+            _material.SetColor("_ShadowColor", _shadowColor);
         }
 
         void LateUpdate()
