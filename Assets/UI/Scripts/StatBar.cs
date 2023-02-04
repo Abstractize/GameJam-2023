@@ -9,6 +9,7 @@ namespace UIHud
     {
         public int width { get; set; }
         public int height { get; set; }
+        public Color bg { get; set; }
 
         public void SetValueWithoutNotify(float newValue)
         {
@@ -61,6 +62,7 @@ namespace UIHud
             UxmlIntAttributeDescription m_height = new UxmlIntAttributeDescription() { name = "height", defaultValue = 50 };
             UxmlFloatAttributeDescription m_value = new UxmlFloatAttributeDescription() { name = "value", defaultValue = 1 };
             UxmlEnumAttributeDescription<StatBar.FillType> m_fillType = new UxmlEnumAttributeDescription<StatBar.FillType>() { name = "fill-type", defaultValue = 0 };
+            UxmlColorAttributeDescription m_bg = new UxmlColorAttributeDescription() { name = "color", defaultValue = Color.red };
 
             public override IEnumerable<UxmlChildElementDescription> uxmlChildElementsDescription
             {
@@ -75,6 +77,7 @@ namespace UIHud
                 ate.height = m_height.GetValueFromBag(bag, cc);
                 ate.value = m_value.GetValueFromBag(bag, cc);
                 ate.fillType = m_fillType.GetValueFromBag(bag, cc);
+                ate.bg = m_bg.GetValueFromBag(bag, cc);
 
                 ate.Clear();
                 VisualTreeAsset vt = Resources.Load<VisualTreeAsset>("UI Documents/Stat");
@@ -82,6 +85,9 @@ namespace UIHud
                 ate.sbParent = statBar.Q<VisualElement>("stat");
                 ate.sbBackground = statBar.Q<VisualElement>("background");
                 ate.sbForeground = statBar.Q<VisualElement>("foreground");
+
+                ate.sbForeground.style.backgroundColor = ate.bg;
+
                 ate.Add(statBar);
 
                 ate.sbParent.style.width = ate.width;
@@ -89,7 +95,7 @@ namespace UIHud
                 ate.style.width = ate.width;
                 ate.style.height = ate.height;
 
-                ate.RegisterValueChangedCallback(ate.UpdateStat());
+                ate.RegisterValueChangedCallback(ate.UpdateStat);
 
                 ate.FillBar();
             }
