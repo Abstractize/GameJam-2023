@@ -1,4 +1,4 @@
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -30,14 +30,11 @@ namespace UIHud
                     return;
                 if (this.panel != null)
                 {
-                    using (var temp = new ChangeEvent<float>())
-                    {
-                        var pooled = temp..GetPooled(this.m_value, value);
+                    using ChangeEvent<float> pooled = ChangeEvent<float>.GetPooled(this.m_value, value);
 
-                        pooled.target = (IEventHandler)this;
-                        this.SetValueWithoutNotify(value);
-                        this.SendEvent((EventBase)pooled);
-                    }
+                    pooled.target = (IEventHandler)this;
+                    this.SetValueWithoutNotify(value);
+                    this.SendEvent((EventBase)pooled);
                 }
                 else
                 {
