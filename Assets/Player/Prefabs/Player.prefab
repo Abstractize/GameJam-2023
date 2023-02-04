@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _smoothing: 0.1
+  _smoothing: 0.9
   _animator: {fileID: 1971830885529460563}
   _agent: {fileID: 5711007307141529725}
 --- !u!114 &860003200792011895
