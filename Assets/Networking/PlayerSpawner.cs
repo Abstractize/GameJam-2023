@@ -39,7 +39,7 @@ namespace Networking
             if (runner.Topology == SimulationConfig.Topologies.Shared)
             {
                 var player = runner.Spawn(_playerPrefab, transform.position, Quaternion.identity, runner.LocalPlayer);
-                _camera.LookAt = player.transform;
+                //_camera.LookAt = player.transform;
                 _camera.Follow = player.transform;
                 _controller.gameObject.SetActive(true);
                 _controller.Player = player.GetComponent<Player.NetworkPlayer>();

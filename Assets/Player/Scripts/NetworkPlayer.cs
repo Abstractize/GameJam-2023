@@ -41,9 +41,14 @@ namespace Player
             _lastDirection = direction;
             _targetDirection = Vector3.Lerp(_targetDirection, direction, Mathf.Clamp01(_lerpTime * (1 - _smoothing)));
 
-            _agent.Move(_targetDirection * _agent.speed);
+            //_targetDirection = transform.position + transform.TransformDirection(direction);
+
+            if (MovementVector.magnitude > 0.5f)
+                _agent.Move(transform.TransformDirection(direction) * _agent.speed);
 
             _lerpTime += Time.deltaTime;
+
+            transform.LookAt(Vector3.zero);
         }
 
         public override void Render()
