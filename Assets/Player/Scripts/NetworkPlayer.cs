@@ -4,15 +4,16 @@ using UnityEngine.AI;
 
 namespace Player
 {
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(Rigidbody))]
     public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
     {
         public static NetworkPlayer Local { get; set; }
         [Header("Movement Values")]
         [SerializeField][Range(0, 0.99f)] private float _smoothing;
+        [SerializeField] private float _speed = 0.5f;
         [Header("Components")]
         [SerializeField] private Animator _animator;
-        [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] private Rigidbody _rigidbody;
         [HideInInspector] public Vector2 MovementVector { get; set; }
         private Vector3 _lastDirection;
         private Vector3 _targetDirection;
@@ -20,7 +21,7 @@ namespace Player
 
         private void Awake()
         {
-            _agent ??= GetComponent<NavMeshAgent>();
+            _rigidbody ??= GetComponent<Rigidbody>();
             if (_animator == null)
                 throw new System.Exception($"{nameof(_animator)} is not Implemented");
         }
@@ -41,7 +42,8 @@ namespace Player
             _lastDirection = direction;
             _targetDirection = Vector3.Lerp(_targetDirection, direction, Mathf.Clamp01(_lerpTime * (1 - _smoothing)));
 
-            _agent.Move(_targetDirection * _agent.speed);
+
+            _rigidbody.position += _targetDirection * _speed;
 
             _lerpTime += Time.deltaTime;
         }
