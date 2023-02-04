@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="screen" style="flex-grow: 1; justify-content: flex-start; align-items: flex-start; margin-top: 0;">
-        <UIHud.StatBar name="hunger" color="#CCB033FF" style="align-items: center; transform-origin: center; position: absolute; right: 35px; top: 35px;" />
-        <UIHud.StatBar name="entertainment" color="#E24590FF" style="align-items: center; transform-origin: center; position: absolute; right: 35px; top: 100px;" />
-        <UIHud.StatBar name="dirtiness" color="#C36B2BFF" style="align-items: center; transform-origin: center; position: absolute; right: 35px; top: 165px;" />
-        <UIHud.StatBar name="rest" color="#459EB4FF" style="align-items: center; transform-origin: center; position: absolute; right: 35px; top: 230px;" />
-    </ui:VisualElement>
-</ui:UXML>
