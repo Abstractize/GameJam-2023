@@ -1,4 +1,6 @@
+using Data;
 using Fusion;
+using Kiosk;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -9,11 +11,10 @@ namespace Player
     public class PlayerController : MonoBehaviour, IPlayerActions
     {
         [SerializeField] public NetworkPlayer Player { get; set; }
+        [HideInInspector] public GameAction Action { get; set; }
 
         public void OnFire(InputAction.CallbackContext context)
-        {
-
-        }
+            => Action?.Callback.Invoke(Player);
 
         public void OnLook(InputAction.CallbackContext context)
         {

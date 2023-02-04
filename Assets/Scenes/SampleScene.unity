@@ -657,7 +657,19 @@ MonoBehaviour:
     m_ActionId: 7fa1906a-5b22-4c13-bbc7-94dc2bb86f2c
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 311540937}
+        m_TargetAssemblyTypeName: Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 274390b4-b1ac-4f0c-8791-fc18b57e4f69
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -5813,6 +5825,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7597809086767287861, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 311540937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81665061ad5104e848864c0845675d21, type: 3}
 --- !u!4 &588041870 stripped
@@ -5827,7 +5844,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-312394
+  m_Name: pb_Mesh29414
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6166,6 +6183,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7597809086767287861, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 311540937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81665061ad5104e848864c0845675d21, type: 3}
 --- !u!4 &846344827 stripped
@@ -54313,6 +54335,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7597809086767287861, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 311540937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81665061ad5104e848864c0845675d21, type: 3}
 --- !u!4 &1567850656 stripped
@@ -54568,6 +54595,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7495985776515306855, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597809086767287861, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 311540937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81665061ad5104e848864c0845675d21, type: 3}
 --- !u!4 &1932498728 stripped
