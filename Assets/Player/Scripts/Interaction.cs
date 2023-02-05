@@ -5,7 +5,7 @@ namespace Data
         Hunger,
         Fun,
         Sleep,
-        Hygiene
+        Hygiene,
+        Evolution
     }
-
 }

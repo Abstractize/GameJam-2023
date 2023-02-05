@@ -1,6 +1,7 @@
 using System.Collections;
 using Data;
 using Player;
+using UIComponents;
 using UnityEngine;
 
 namespace Kiosk
@@ -17,6 +18,7 @@ namespace Kiosk
         [SerializeField] private GameAction _action;
         [SerializeField] private PlayerController _controller;
         [SerializeField] private InventoryObject[] _inventory;
+        [SerializeField] private UIController _uiController;
 
         private void Awake()
             => _action = new GameAction
@@ -40,9 +42,8 @@ namespace Kiosk
             _controller.Action = null;
         }
         public void ActionCallback(PlayerController player)
-        {
-            // Abrir Menu
-        }
+            => _uiController.OnActivate(_inventory);
+
     }
 }
 
