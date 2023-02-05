@@ -114,8 +114,8 @@ namespace Player
                         break;
 
                     case Interaction.Evolution:
-                        StatsBar.Level.text = Player.Level.ToString();
                         Player.Level++;
+                        StatsBar.Level.text = Player.Level.ToString();
                         break;
                 }
             }
