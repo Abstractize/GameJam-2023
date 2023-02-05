@@ -21,8 +21,10 @@ namespace Components
             _renderer ??= GetComponent<SpriteRenderer>();
             _material ??= new Material(_shader);
             _renderer.material = _material;
-            _material.SetColor("_BaseColor", BackgroundColor);
         }
+
+        void Start()
+            => _material.SetColor("_BaseColor", BackgroundColor);
 
         void LateUpdate()
         {
