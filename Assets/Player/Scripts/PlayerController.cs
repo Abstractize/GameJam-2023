@@ -3,6 +3,7 @@ using Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Player.PlayerInputs;
+using StatsController;
 
 namespace Player
 {
@@ -17,6 +18,7 @@ namespace Player
         private float _waitTime = 15;
         [SerializeField] private bool _isGeneratingMoney = true;
         [SerializeField] private bool _isEnabledStats = true;
+        [SerializeField] public StatsBar statsBar { get; set; }
 
         private const int EARNING = 10;
         public int Level { get; private set; } = 1;
@@ -45,6 +47,7 @@ namespace Player
             while (_isGeneratingMoney)
             {
                 Wallet.Money += Level * EARNING;
+                statsBar.Coins.text = Wallet.Money.ToString();
 
                 // Trigger Wallet Animation
 
@@ -62,18 +65,23 @@ namespace Player
                 switch (i)
                 {
                     case 1:
-                        Stats.hunger -= DECAY;
+                        Stats.Hunger -= DECAY;
                         break;
                     case 2:
-                        Stats.fun -= DECAY;
+                        Stats.Fun -= DECAY;
                         break;
                     case 3:
-                        Stats.sleep -= DECAY;
+                        Stats.Sleep -= DECAY;
                         break;
                     case 4:
-                        Stats.hygiene -= DECAY;
+                        Stats.Hygiene -= DECAY;
                         break;
                 }
+
+                statsBar.hunger.value = Stats.Hunger;
+                statsBar.fun.value = Stats.Fun;
+                statsBar.hygiene.value = Stats.Hygiene;
+                statsBar.sleep.value = Stats.Sleep;
 
                 Debug.Log($"Stats lower");
                 yield return new WaitForSeconds(_waitTime / 3);

@@ -1,8 +1,11 @@
-public class PlayerStats
+namespace StatsController
 {
+    public class PlayerStats
+    {
 
-    public int hunger { get; set; } = 20;
-    public int sleep { get; set; } = 20;
-    public int fun { get; set; } = 20;
-    public int hygiene { get; set; } = 20;
+        public int Hunger { get; set; } = 20;
+        public int Sleep { get; set; } = 20;
+        public int Fun { get; set; } = 20;
+        public int Hygiene { get; set; } = 20;
+    }
 }

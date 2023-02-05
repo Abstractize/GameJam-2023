@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StatsBar : MonoBehaviour
 {
@@ -9,13 +10,5 @@ public class StatsBar : MonoBehaviour
     public Slider fun;
     public Slider hygiene;
     public Slider sleep;
-    public PlayerStats stats;
-
-    public void Update()
-    {
-        hunger.value = stats.hunger;
-        fun.value = stats.fun;
-        hygiene.value = stats.hygiene;
-        sleep.value = stats.sleep;
-    }
+    public TMP_Text Coins;
 }
