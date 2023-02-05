@@ -16,6 +16,7 @@ namespace Networking
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private PlayerController _controller;
         [SerializeField] private StatsBar _statsBar;
+        [SerializeField] private AudioSource _musicPlayer;
         public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
         {
             if (runner.IsServer)
@@ -47,6 +48,7 @@ namespace Networking
                     _controller.gameObject.SetActive(true);
                     _controller.Player = player.GetComponent<Player.NetworkPlayer>();
                     _controller.StatsBar = _statsBar;
+                    _musicPlayer.Play();
                     player.GetComponentInChildren<SpriteSetter>().BackgroundColor = UnityEngine.Random.ColorHSV();
                 }
             }

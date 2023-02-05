@@ -124,6 +124,185 @@ MonoBehaviour:
   _backgroundSprite: {fileID: 21300000, guid: 0126f8dcf5f424a10bbc2ae5d5a17584, type: 3}
   _linearSprite: {fileID: 21300000, guid: 3e866aa9eade7489daf5b9cf76906eab, type: 3}
   _colorSprite: {fileID: 21300000, guid: e5cb4ba57736646e6b4dfd1f8aa9ad4e, type: 3}
+--- !u!1 &3730521797826975176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1335827208023234287}
+  - component: {fileID: 8815423291213731126}
+  - component: {fileID: 4958623293892561574}
+  - component: {fileID: 8956772047919378009}
+  m_Layer: 0
+  m_Name: AudioEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1335827208023234287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730521797826975176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8428418295640612483}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8815423291213731126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730521797826975176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670808acb033b4cc7bd92d1d1f108655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  _soundSource: {fileID: 4958623293892561574}
+  _normalSounds:
+  - {fileID: 8300000, guid: b30e9b3deb7dd48bebd3c3647d265819, type: 3}
+  - {fileID: 8300000, guid: 70094858f6c8947fc93ccdae44c2cc4d, type: 3}
+  _laughSounds:
+  - {fileID: 8300000, guid: 3a0024438e5be42509184c55fd44c44a, type: 3}
+  - {fileID: 8300000, guid: d6919fd408f844ef6ace546279b2de6d, type: 3}
+  _hungerSounds:
+  - {fileID: 8300000, guid: c8f0e7d998f2a44309f27a1ec0bda63f, type: 3}
+  - {fileID: 8300000, guid: 6e3fdf271fd5d459d9e2d18cec27db32, type: 3}
+  _playRandomSounds: 1
+--- !u!82 &4958623293892561574
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730521797826975176}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8034482034916361546, guid: 1b439bb8f85454e138ecdccfa19c143e,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!167 &8956772047919378009
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730521797826975176}
+  m_Enabled: 1
+  m_MinDistance: 10
+  m_MaxDistance: 15
+  m_ReverbPreset: 7
+  m_Room: -1000
+  m_RoomHF: -476
+  m_DecayTime: 4.32
+  m_DecayHFRatio: 0.59
+  m_Reflections: -789
+  m_ReflectionsDelay: 0.02
+  m_Reverb: -289
+  m_ReverbDelay: 0.03
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &8173089860753526361
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2037914409937437803}
+  - {fileID: 1335827208023234287}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -178,6 +358,7 @@ MonoBehaviour:
   _interpolationDataSource: 0
   _animator: {fileID: 1971830885529460563}
   _agent: {fileID: 5711007307141529725}
+  _soundEmitter: {fileID: 8815423291213731126}
 --- !u!114 &860003200792011895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +384,7 @@ MonoBehaviour:
   - {fileID: 8503031069435931887}
   - {fileID: 3139679656748541630}
   - {fileID: 4138736286920454300}
+  - {fileID: 8815423291213731126}
   SimulationBehaviours: []
 --- !u!114 &3139679656748541630
 MonoBehaviour:
@@ -218,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   Animator: {fileID: 1971830885529460563}
-  TotalWords: 2
+  TotalWords: 3
   SyncSettings: 79
   FloatAccuracy:
     _value: 0

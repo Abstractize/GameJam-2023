@@ -1,3 +1,4 @@
+using System.Collections;
 using Fusion;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +14,8 @@ namespace Player
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _agent;
         [HideInInspector] public Vector2 MovementVector { get; set; }
+
+        [SerializeField] private PlayerSounds _soundEmitter;
         public int Level { get; set; } = 1;
 
         private void Awake()
@@ -26,6 +29,7 @@ namespace Player
             if (Object.HasInputAuthority)
                 Local = this;
 
+            StartCoroutine(nameof(PlayNormalSoundRandomly));
         }
 
         public override void FixedUpdateNetwork()
@@ -62,6 +66,17 @@ namespace Player
                 int n when 40 <= n && n < 60 => Devolution.ROOT_LEVEL,
                 _ => throw new System.Exception($"{nameof(level)} is out of range"),
             };
+        }
+
+        public IEnumerator PlayNormalSoundRandomly()
+        {
+
+            while (_soundEmitter.PlayRandomSounds)
+            {
+                _soundEmitter.RPC_PlayNormalSound();
+                float randomSeconds = Random.Range(3f, 15f);
+                yield return new WaitForSeconds(randomSeconds);
+            }
         }
     }
     public enum Devolution

@@ -280,6 +280,26 @@ PrefabInstance:
       propertyPath: _controller
       value: 
       objectReference: {fileID: 311540937}
+    - target: {fileID: -1519981782521429039, guid: d621bd30a02944572a93ee58d12f507a,
+        type: 3}
+      propertyPath: _musicPlayer
+      value: 
+      objectReference: {fileID: 1207903666}
+    - target: {fileID: 158763139184993002, guid: d621bd30a02944572a93ee58d12f507a,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158763139184993002, guid: d621bd30a02944572a93ee58d12f507a,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 158763139184993002, guid: d621bd30a02944572a93ee58d12f507a,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4674042503400422069, guid: d621bd30a02944572a93ee58d12f507a,
         type: 3}
       propertyPath: m_RootOrder
@@ -39155,6 +39175,12 @@ MonoBehaviour:
 --- !u!4 &1207903665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4674042503400422069, guid: d621bd30a02944572a93ee58d12f507a,
+    type: 3}
+  m_PrefabInstance: {fileID: 157814103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1207903666 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 158763139184993002, guid: d621bd30a02944572a93ee58d12f507a,
     type: 3}
   m_PrefabInstance: {fileID: 157814103}
   m_PrefabAsset: {fileID: 0}
