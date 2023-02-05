@@ -42,6 +42,7 @@ namespace Player
         {
             _animator.SetFloat("X", MovementVector.x);
             _animator.SetFloat("Y", MovementVector.y);
+            _animator.SetFloat("Devolution", (float)GetDevolution());
         }
 
         public void PlayerLeft(PlayerRef player)
@@ -49,6 +50,25 @@ namespace Player
             if (player == Object.InputAuthority)
                 Runner.Despawn(Object);
         }
+
+        private Devolution GetDevolution()
+        {
+            int level = Level % 60;
+
+            return level switch
+            {
+                int n when 0 <= n && n < 20 => Devolution.BASE_LEVEL,
+                int n when 20 <= n && n < 40 => Devolution.MEDIUM_LEVEL,
+                int n when 40 <= n && n < 60 => Devolution.ROOT_LEVEL,
+                _ => throw new System.Exception($"{nameof(level)} is out of range"),
+            };
+        }
+    }
+    public enum Devolution
+    {
+        BASE_LEVEL = 0,
+        MEDIUM_LEVEL = 1,
+        ROOT_LEVEL = 2
     }
 }
 
