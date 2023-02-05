@@ -20,6 +20,7 @@ namespace Player
         [SerializeField] private bool _isGeneratingMoney = true;
         [SerializeField] private bool _isEnabledStats = true;
         [SerializeField] public StatsBar StatsBar { get; set; }
+        [SerializeField] public 
 
         private const int EARNING = 10;
 
