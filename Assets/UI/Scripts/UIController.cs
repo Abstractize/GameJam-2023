@@ -63,9 +63,8 @@ namespace UIComponents
         }
 
         public void OnSubmit(InputAction.CallbackContext context)
-        {
-            _menu[select].UseObject();
-        }
+            => _menu[select].UseObject();
+
 
         public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
         {

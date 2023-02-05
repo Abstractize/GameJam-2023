@@ -15,6 +15,7 @@ namespace Networking
         [SerializeField] private NetworkPrefabRef _playerPrefab;
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private PlayerController _controller;
+        [SerializeField] private StatsBar _statsBar;
         public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
         {
             if (runner.IsServer)
@@ -45,6 +46,7 @@ namespace Networking
                     _camera.Follow = player.transform;
                     _controller.gameObject.SetActive(true);
                     _controller.Player = player.GetComponent<Player.NetworkPlayer>();
+                    _controller.StatsBar = _statsBar;
                     player.GetComponentInChildren<SpriteSetter>().BackgroundColor = UnityEngine.Random.ColorHSV();
                 }
             }

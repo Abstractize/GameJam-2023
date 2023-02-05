@@ -19,7 +19,7 @@ namespace Player
         private float _waitTime = 15;
         [SerializeField] private bool _isGeneratingMoney = true;
         [SerializeField] private bool _isEnabledStats = true;
-        [SerializeField] public StatsBar statsBar { get; set; }
+        [SerializeField] public StatsBar StatsBar { get; set; }
 
         private const int EARNING = 10;
         public int Level { get; private set; } = 1;
@@ -33,7 +33,7 @@ namespace Player
             StartCoroutine(nameof(GenerateMoney));
             StartCoroutine(nameof(EnableStats));
 
-            statsBar = GameObject.FindGameObjectsWithTag("HUD")[0].GetComponent<StatsBar>();
+            StatsBar ??= GameObject.FindGameObjectsWithTag("HUD")[0].GetComponent<StatsBar>();
         }
 
         public void OnFire(InputAction.CallbackContext context)
@@ -52,11 +52,10 @@ namespace Player
             while (_isGeneratingMoney)
             {
                 Wallet.Money += Level * EARNING;
-                statsBar.Coins.text = Wallet.Money.ToString();
+                StatsBar.Coins.text = Wallet.Money.ToString();
 
                 // Trigger Wallet Animation
 
-                Debug.Log($"You have {Wallet.Money} money");
                 yield return new WaitForSeconds(_waitTime);
             }
         }
@@ -83,12 +82,11 @@ namespace Player
                         break;
                 }
 
-                statsBar.hunger.value = Stats.Hunger;
-                statsBar.fun.value = Stats.Fun;
-                statsBar.hygiene.value = Stats.Hygiene;
-                statsBar.sleep.value = Stats.Sleep;
+                StatsBar.hunger.value = Stats.Hunger;
+                StatsBar.fun.value = Stats.Fun;
+                StatsBar.hygiene.value = Stats.Hygiene;
+                StatsBar.sleep.value = Stats.Sleep;
 
-                Debug.Log($"Stats lower");
                 yield return new WaitForSeconds(_waitTime / 3);
             }
         }
