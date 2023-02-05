@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/InvetoryObject", order = 1)]
 public class InventoryObject : ScriptableObject
 {
-    public Texture2D Icon;
+    public Sprite Icon;
     public string Name;
     public int Amount;
     public int Cost;

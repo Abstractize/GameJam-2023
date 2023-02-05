@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Kiosk
   - HUD
+  - Store
   layers:
   - Default
   - TransparentFX
