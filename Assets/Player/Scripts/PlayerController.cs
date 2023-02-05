@@ -92,28 +92,32 @@ namespace Player
 
         public void BuyItem(Interaction stat, int cost, int amount)
         {
-            Wallet.Money += cost;
-            switch (stat)
+            if (Wallet.Money >= cost)
             {
-                case Interaction.Hunger:
-                    Stats.Hunger += amount;
-                    break;
+                Wallet.Money -= cost;
+                switch (stat)
+                {
+                    case Interaction.Hunger:
+                        Stats.Hunger += amount;
+                        break;
 
-                case Interaction.Fun:
-                    Stats.Fun += amount;
-                    break;
+                    case Interaction.Fun:
+                        Stats.Fun += amount;
+                        break;
 
-                case Interaction.Hygiene:
-                    Stats.Hygiene += amount;
-                    break;
+                    case Interaction.Hygiene:
+                        Stats.Hygiene += amount;
+                        break;
 
-                case Interaction.Sleep:
-                    Stats.Sleep += amount;
-                    break;
+                    case Interaction.Sleep:
+                        Stats.Sleep += amount;
+                        break;
 
-                case Interaction.Evolution:
-                    Player.Level++;
-                    break;
+                    case Interaction.Evolution:
+                        StatsBar.Level.text = Player.Level.ToString();
+                        Player.Level++;
+                        break;
+                }
             }
         }
     }

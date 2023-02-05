@@ -5943,7 +5943,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Loading...
+  m_Text: Cargando...
 --- !u!222 &487897410
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6697,6 +6697,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &898395308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2730340477207423485, guid: fbf4cf7346faed842a57eb8749ae9590,
+    type: 3}
+  m_PrefabInstance: {fileID: 6189213325398182732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1132983352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6189213326040642213, guid: fbf4cf7346faed842a57eb8749ae9590,
@@ -55088,12 +55100,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 563993987}
     m_Modifications:
-    - target: {fileID: 552842728253166260, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0cdb3ac559ebb40d7a583f2b144965a7,
-        type: 3}
     - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -55658,6 +55664,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 563993987}
     m_Modifications:
+    - target: {fileID: 2730340477207423485, guid: fbf4cf7346faed842a57eb8749ae9590,
+        type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873558731544539283, guid: fbf4cf7346faed842a57eb8749ae9590,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6189213324820116454, guid: fbf4cf7346faed842a57eb8749ae9590,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -55678,6 +55694,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6189213325616053178, guid: fbf4cf7346faed842a57eb8749ae9590,
+        type: 3}
+      propertyPath: Level
+      value: 
+      objectReference: {fileID: 898395308}
     - target: {fileID: 6189213325669824827, guid: fbf4cf7346faed842a57eb8749ae9590,
         type: 3}
       propertyPath: m_AnchorMax.x

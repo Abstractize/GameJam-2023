@@ -11,4 +11,5 @@ public class StatsBar : MonoBehaviour
     public Slider hygiene;
     public Slider sleep;
     public TMP_Text Coins;
+    public TMP_Text Level;
 }
