@@ -732,6 +732,7 @@ MonoBehaviour:
   _waitTime: 15
   _isGeneratingMoney: 1
   _isEnabledStats: 1
+  interaction: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,6 +5711,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
         type: 3}
+      propertyPath: m_TagString
+      value: Kiosk
+      objectReference: {fileID: 0}
+    - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6064,6 +6070,11 @@ PrefabInstance:
     - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
         type: 3}
       propertyPath: m_Name
+      value: Kiosk
+      objectReference: {fileID: 0}
+    - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
+      propertyPath: m_TagString
       value: Kiosk
       objectReference: {fileID: 0}
     - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
@@ -54288,6 +54299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
         type: 3}
+      propertyPath: m_TagString
+      value: Kiosk
+      objectReference: {fileID: 0}
+    - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -54419,6 +54435,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1567850655}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807463721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6609772056004739215, guid: fbf4cf7346faed842a57eb8749ae9590,
+    type: 3}
+  m_PrefabInstance: {fileID: 6189213325398182732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896797227
 GameObject:
   m_ObjectHideFlags: 0
@@ -54545,6 +54573,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kiosk (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
+        type: 3}
+      propertyPath: m_TagString
+      value: Kiosk
       objectReference: {fileID: 0}
     - target: {fileID: 285633856499021572, guid: 81665061ad5104e848864c0845675d21,
         type: 3}
@@ -54778,6 +54811,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6189213325616053178, guid: fbf4cf7346faed842a57eb8749ae9590,
+        type: 3}
+      propertyPath: Coins
+      value: 
+      objectReference: {fileID: 1807463721}
     - target: {fileID: 6189213325669824827, guid: fbf4cf7346faed842a57eb8749ae9590,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -54897,6 +54935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hud
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189213326040642213, guid: fbf4cf7346faed842a57eb8749ae9590,
+        type: 3}
+      propertyPath: m_TagString
+      value: HUD
       objectReference: {fileID: 0}
     - target: {fileID: 6189213326140164114, guid: fbf4cf7346faed842a57eb8749ae9590,
         type: 3}

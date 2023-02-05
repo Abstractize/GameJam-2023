@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static Player.PlayerInputs;
 using StatsController;
+using UnityEngine.UI;
 
 namespace Player
 {
@@ -25,10 +26,24 @@ namespace Player
 
         private const int DECAY = 1;
 
+        public Canvas Hud { get; set; }
+
+        public enum Interaction
+        {
+            Default,
+            Hunger,
+            Fun,
+            Sleep,
+            Hygiene
+        }
+        public Interaction interaction = Interaction.Default;
+
         private void Start()
         {
             StartCoroutine(nameof(GenerateMoney));
             StartCoroutine(nameof(EnableStats));
+
+            statsBar = GameObject.FindGameObjectsWithTag("HUD")[0].GetComponent<StatsBar>();
         }
 
         public void OnFire(InputAction.CallbackContext context)
@@ -85,6 +100,27 @@ namespace Player
 
                 Debug.Log($"Stats lower");
                 yield return new WaitForSeconds(_waitTime / 3);
+            }
+        }
+
+        private void PlayerInteract()
+        {
+            switch (interaction)
+            {
+                case Interaction.Default:
+                    break;
+                case Interaction.Hunger:
+                    // Hunger Store
+                    break;
+                case Interaction.Fun:
+                    // Fun Store
+                    break;
+                case Interaction.Hygiene:
+                    // Hygiene Store
+                    break;
+                case Interaction.Sleep:
+                    // Sleep Store
+                    break;
             }
         }
     }
