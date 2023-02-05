@@ -2,13 +2,13 @@ using System.Collections;
 using Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Player.PlayerInputs;
 using StatsController;
 using UnityEngine.UI;
+using static Player.PlayerInputs;
 
 namespace Player
 {
-    public class PlayerController : MonoBehaviour, IPlayerActions
+    public partial class PlayerController : MonoBehaviour, IPlayerActions
     {
         [SerializeField] public NetworkPlayer Player { get; set; }
         [HideInInspector] public GameAction Action { get; set; } = new();
@@ -28,16 +28,6 @@ namespace Player
 
         public Canvas Hud { get; set; }
 
-        public enum Interaction
-        {
-            Default,
-            Hunger,
-            Fun,
-            Sleep,
-            Hygiene
-        }
-        public Interaction interaction = Interaction.Default;
-
         private void Start()
         {
             StartCoroutine(nameof(GenerateMoney));
@@ -47,7 +37,7 @@ namespace Player
         }
 
         public void OnFire(InputAction.CallbackContext context)
-            => Action?.Callback.Invoke(Player);
+            => Action?.Callback.Invoke(this);
 
         public void OnLook(InputAction.CallbackContext context)
         {
@@ -103,23 +93,25 @@ namespace Player
             }
         }
 
-        private void PlayerInteract()
+        public void BuyItem(Interaction stat, int cost, int amount)
         {
-            switch (interaction)
+            Wallet.Money += cost;
+            switch (stat)
             {
-                case Interaction.Default:
-                    break;
                 case Interaction.Hunger:
-                    // Hunger Store
+                    Stats.Hunger += amount;
                     break;
+
                 case Interaction.Fun:
-                    // Fun Store
+                    Stats.Fun += amount;
                     break;
+
                 case Interaction.Hygiene:
-                    // Hygiene Store
+                    Stats.Hygiene += amount;
                     break;
+
                 case Interaction.Sleep:
-                    // Sleep Store
+                    Stats.Sleep += amount;
                     break;
             }
         }

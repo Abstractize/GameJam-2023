@@ -7,7 +7,7 @@ namespace Kiosk
 {
     public interface IStoreInteraction
     {
-        void ActionCallback(Player.NetworkPlayer player);
+        void ActionCallback(PlayerController player);
     }
 
     public class StoreInteraction : MonoBehaviour, IStoreInteraction
@@ -16,6 +16,7 @@ namespace Kiosk
         [SerializeField] private string _actionName = "Buy Something";
         [SerializeField] private GameAction _action;
         [SerializeField] private PlayerController _controller;
+        [SerializeField] private InventoryObject[] _inventory;
 
         private void Awake()
             => _action = new GameAction
@@ -38,8 +39,10 @@ namespace Kiosk
                 return;
             _controller.Action = null;
         }
-        public void ActionCallback(Player.NetworkPlayer player)
-            => Debug.Log($"Callback from {_name}");
+        public void ActionCallback(PlayerController player)
+        {
+            // Abrir Menu
+        }
     }
 }
 
