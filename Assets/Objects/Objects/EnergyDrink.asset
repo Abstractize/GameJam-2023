@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435dd0af19e204600976bdd0fe1aa1dc, type: 3}
   m_Name: EnergyDrink
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  Name: 
-  Amount: 0
-  Cost: 0
-  Stat: 0
+  Icon: {fileID: 21300000, guid: d5c09d8cc07bc524aa43acc0fb7ed994, type: 3}
+  Name: Energy Drink
+  Amount: 6
+  Cost: 4
+  Stat: 2
