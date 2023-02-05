@@ -12,11 +12,20 @@ namespace Networking
 {
     public class PlayerSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
+        [Header("Player Settings")]
         [SerializeField] private NetworkPrefabRef _playerPrefab;
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private PlayerController _controller;
-        [SerializeField] private StatsBar _statsBar;
+        [SerializeField] private Color[] _bodyColors;
+
+        [Header("Audio Settings")]
         [SerializeField] private AudioSource _musicPlayer;
+
+        [Header("GUI Settings")]
+        [SerializeField] private StatsBar _statsBar;
+        [SerializeField] private GameObject _loadingScreen;
+        [SerializeField] private GameObject _hud;
+
         public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
         {
             if (runner.IsServer)
@@ -49,7 +58,13 @@ namespace Networking
                     _controller.Player = player.GetComponent<Player.NetworkPlayer>();
                     _controller.StatsBar = _statsBar;
                     _musicPlayer.Play();
-                    player.GetComponentInChildren<SpriteSetter>().BackgroundColor = UnityEngine.Random.ColorHSV();
+
+                    _loadingScreen.SetActive(false);
+                    _hud.SetActive(true);
+
+                    if (_controller.Player.HasInputAuthority)
+                        player.GetComponentInChildren<SpriteSetter>().BackgroundColor =
+                            _bodyColors[UnityEngine.Random.Range(0, _bodyColors.Length - 1)];
                 }
             }
         }
