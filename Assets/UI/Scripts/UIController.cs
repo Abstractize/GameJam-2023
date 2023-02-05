@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using static Player.PlayerInputs;
 using Player;
 using UnityEngine.UI;
+using TMPro;
 
 namespace UIComponents
 {
@@ -13,6 +14,7 @@ namespace UIComponents
         [SerializeField] private Canvas _hud;
         [SerializeField] private Canvas _store;
         [SerializeField] private Image _item;
+        [SerializeField] private TMP_Text _action;
         private bool isHudActive = true;
         private bool isStoreActive = false;
         [HideInInspector] private InventoryObject[] _menu;
@@ -21,27 +23,14 @@ namespace UIComponents
         public void OnActivate(InventoryObject[] menu)
         {
             _menu = menu;
-
-            // Cambiar ActionMap
-            // _input.currentActionMap = "UI";
-
-            // Desplegamos Interfaz
-        }
-
-        public void OnDeativate()
-        {
-            // _input.currentActionMap = "Player";
+            _store.gameObject.SetActive(true);
+            _input.defaultActionMap = "UI";
         }
 
         public void OnCancel(InputAction.CallbackContext context)
         {
-            if (isStoreActive)
-            {
-                _item.sprite = _menu[0].Icon;
-                _item.SetNativeSize();
-                _store.gameObject.SetActive(false);
-                isStoreActive = false;
-            }
+            _store.gameObject.SetActive(false);
+            _input.defaultActionMap = "Player";
         }
 
         public void OnClick(InputAction.CallbackContext context)
