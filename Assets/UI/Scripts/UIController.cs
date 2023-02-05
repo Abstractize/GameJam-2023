@@ -7,7 +7,7 @@ using TMPro;
 
 namespace UIComponents
 {
-    public class UIController : MonoBehaviour, IUIActions
+    public class UIController : MonoBehaviour
     {
         [SerializeField] private PlayerInput _input;
         [SerializeField] private PlayerController _controller;
@@ -25,9 +25,10 @@ namespace UIComponents
             _menu = menu;
             _store.gameObject.SetActive(true);
             _input.defaultActionMap = "UI";
+            _item.sprite = _menu[select].Icon;
         }
 
-        public void OnCancel(InputAction.CallbackContext context)
+        public void OnCancel()
         {
             _store.gameObject.SetActive(false);
             _input.defaultActionMap = "Player";
@@ -48,8 +49,11 @@ namespace UIComponents
             var value = context.ReadValue<Vector2>().y;
 
             select += Mathf.RoundToInt(value);
+
             if (select >= _menu.Length)
                 select = 0;
+
+            _item.sprite = _menu[select].Icon;
 
         }
 
@@ -68,20 +72,8 @@ namespace UIComponents
             throw new System.NotImplementedException();
         }
 
-        public void OnSubmit(InputAction.CallbackContext context)
-        {
-            if (!isStoreActive)
-            {
-                _store.gameObject.SetActive(true);
-                isStoreActive = true;
-            }
-            else
-            {
-                _menu[select].UseObject(_controller);
-            }
-        }
-
-
+        public void OnSubmit()
+            => _menu[select].UseObject(_controller);
 
         public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
         {

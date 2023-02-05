@@ -55088,6 +55088,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 563993987}
     m_Modifications:
+    - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 563993988}
+    - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnCancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIComponents.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664262895478303426, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6419327645079058676, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
         type: 3}
       propertyPath: m_Name
@@ -55202,6 +55237,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169132661434954980, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169132661434954980, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169132661434954980, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 563993988}
+    - target: {fileID: 7169132661434954980, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169132661434954980, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSubmit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169132661434954980, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIComponents.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169132661434954980, guid: e85cc6d8b94d56e458e23b0f6bb4af32,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e85cc6d8b94d56e458e23b0f6bb4af32, type: 3}
@@ -55918,6 +55988,12 @@ PrefabInstance:
       propertyPath: _uiController
       value: 
       objectReference: {fileID: 563993988}
+    - target: {fileID: 8375461358869968069, guid: c589f30002f5248e8a6b55a0156377d8,
+        type: 3}
+      propertyPath: _inventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c2ce286e885e35409c288e1723182ec,
+        type: 2}
     - target: {fileID: 8717548767128742080, guid: c589f30002f5248e8a6b55a0156377d8,
         type: 3}
       propertyPath: m_IsActive

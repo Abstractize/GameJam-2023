@@ -110,6 +110,10 @@ namespace Player
                 case Interaction.Sleep:
                     Stats.Sleep += amount;
                     break;
+
+                case Interaction.Evolution:
+                    Player.Level++;
+                    break;
             }
         }
     }
