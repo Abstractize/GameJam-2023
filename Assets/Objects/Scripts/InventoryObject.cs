@@ -11,12 +11,7 @@ public class InventoryObject : ScriptableObject
     public int Cost;
     public Interaction Stat;
 
-    public void UseObject()
-    {
-        PlayerController player;
-
-        Debug.Log("Using Object");
-        //player.BuyItem(Stat, Cost, Amount);
-    }
+    public void UseObject(PlayerController player)
+        => player.BuyItem(Stat, Cost, Amount);
 }
 

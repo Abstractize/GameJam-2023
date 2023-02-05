@@ -22,7 +22,6 @@ namespace Player
         [SerializeField] public StatsBar StatsBar { get; set; }
 
         private const int EARNING = 10;
-        public int Level { get; private set; } = 1;
 
         private const int DECAY = 1;
 
@@ -51,7 +50,7 @@ namespace Player
         {
             while (_isGeneratingMoney)
             {
-                Wallet.Money += Level * EARNING;
+                Wallet.Money += Player.Level * EARNING;
                 StatsBar.Coins.text = Wallet.Money.ToString();
 
                 // Trigger Wallet Animation

@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Player.PlayerInputs;
+using Player;
 
 namespace UIComponents
 {
     public class UIController : MonoBehaviour, IUIActions
     {
         [SerializeField] private PlayerInput _input;
-        [SerializeField] private InventoryObject[] _menu;
+        [SerializeField] private PlayerController _controller;
+        [HideInInspector] private InventoryObject[] _menu;
         private int select = 0;
 
         public void OnActivate(InventoryObject[] menu)
@@ -63,7 +65,7 @@ namespace UIComponents
         }
 
         public void OnSubmit(InputAction.CallbackContext context)
-            => _menu[select].UseObject();
+            => _menu[select].UseObject(_controller);
 
 
         public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)

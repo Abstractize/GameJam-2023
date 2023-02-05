@@ -13,6 +13,7 @@ namespace Player
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _agent;
         [HideInInspector] public Vector2 MovementVector { get; set; }
+        public int Level { get; set; } = 1;
 
         private void Awake()
         {
