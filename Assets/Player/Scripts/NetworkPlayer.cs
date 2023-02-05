@@ -16,7 +16,8 @@ namespace Player
         [HideInInspector] public Vector2 MovementVector { get; set; }
 
         [SerializeField] private PlayerSounds _soundEmitter;
-        public int Level { get; set; } = 1;
+        [Header("Player Values")]
+        [SerializeField] public int Level = 1;
 
         private void Awake()
         {
