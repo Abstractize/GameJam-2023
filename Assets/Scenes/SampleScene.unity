@@ -39567,7 +39567,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: -6062578164958778753, guid: 8b11af8fe06dd4aa08710cee135b83cb, type: 3}
-  m_VersionIndex: 7
+  m_VersionIndex: 10
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -54787,7 +54787,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 4781277628412113339, guid: 8b11af8fe06dd4aa08710cee135b83cb, type: 3}
-  m_VersionIndex: 7
+  m_VersionIndex: 10
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -55863,11 +55863,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1138878556, guid: c589f30002f5248e8a6b55a0156377d8, type: 3}
       propertyPath: m_VersionIndex
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1567748558, guid: c589f30002f5248e8a6b55a0156377d8, type: 3}
       propertyPath: m_VersionIndex
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 242421623927146103, guid: c589f30002f5248e8a6b55a0156377d8,
         type: 3}
