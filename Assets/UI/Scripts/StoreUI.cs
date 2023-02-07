@@ -1,6 +1,9 @@
+using CameraAction;
+using Cinemachine;
 using Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace UIComponents
@@ -9,6 +12,8 @@ namespace UIComponents
     {
         [Header("Player Properties")]
         [SerializeField] private PlayerController _controller;
+        [SerializeField] private CameraSwitcher _cameraSwitcher;
+        [SerializeField] private PlayerInput _inputActions;
         [Header("UI Properties")]
         [SerializeField] private TMP_Text _storeName;
         [SerializeField] private TMP_Text _itemName;
@@ -17,6 +22,7 @@ namespace UIComponents
 
         [HideInInspector] private InventoryObject[] _menu;
 
+
         private int select = 0;
 
         public void OnActivate(InventoryObject[] menu)
@@ -24,13 +30,21 @@ namespace UIComponents
             _menu = menu;
             gameObject.SetActive(true);
             select = 0;
-            //_input.defaultActionMap = "Player";
+
+            _inputActions.actions.Disable();
+
+            if (menu[0].Stat != Data.Interaction.Evolution)
+                _cameraSwitcher.EnterStore(_menu[select].Stat);
         }
 
         public void OnCancel()
         {
             gameObject.SetActive(false);
-            //_input.defaultActionMap = "Player";
+
+            if (_menu[0].Stat != Data.Interaction.Evolution)
+                _cameraSwitcher.ExitStore();
+
+            _inputActions.actions.Enable();
         }
 
         public void OnBuy()
