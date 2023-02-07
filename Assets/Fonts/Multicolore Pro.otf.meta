@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc11dde8a18a64b04911c3751ab1147c
+guid: 841e09ec2650a8f45878e126d1b27757
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Cotton Cloud
+  - Multicolore Pro
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

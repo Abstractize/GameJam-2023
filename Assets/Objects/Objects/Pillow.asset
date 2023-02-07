@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 435dd0af19e204600976bdd0fe1aa1dc, type: 3}
-  m_Name: Toy
+  m_Name: Pillow
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 07308798b36e3224ba80b0ad7013bf8d, type: 3}
-  Name: Toy
-  Amount: 3
-  Cost: 7
-  Stat: 1
+  Icon: {fileID: 21300000, guid: be0d671c9d6a73244860395cd3893126, type: 3}
+  Name: Pillow
+  Amount: 20
+  Cost: 50
+  Stat: 2

@@ -7,5 +7,6 @@ namespace Data
     {
         public string Name { get; set; }
         public Action<PlayerController> Callback { get; set; }
+        public string StoreName { get; internal set; }
     }
 }
