@@ -91,7 +91,7 @@ namespace Player
             try
             {
                 if (Wallet.Money < cost)
-                    throw new System.Exception("You don't habe enough money to buy this item");
+                    throw new System.Exception("You don't have enough money to buy this item");
 
                 if (IsStatMaxed(stat))
                     throw new System.Exception("The stat is at its maximum value");
