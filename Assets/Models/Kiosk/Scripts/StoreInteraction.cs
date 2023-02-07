@@ -1,4 +1,3 @@
-using System.Collections;
 using Data;
 using Player;
 using UIComponents;
@@ -18,11 +17,12 @@ namespace Kiosk
         [SerializeField] private GameAction _action;
         [SerializeField] private PlayerController _controller;
         [SerializeField] private InventoryObject[] _inventory;
-        [SerializeField] private UIController _uiController;
+        [SerializeField] private StoreUI _ui;
 
         private void Awake()
             => _action = new GameAction
             {
+                StoreName = _name,
                 Name = _actionName,
                 Callback = ActionCallback
             };
@@ -41,8 +41,9 @@ namespace Kiosk
                 return;
             _controller.Action = null;
         }
+
         public void ActionCallback(PlayerController player)
-            => _uiController.OnActivate(_inventory);
+            => _ui.OnActivate(_inventory);
 
     }
 }

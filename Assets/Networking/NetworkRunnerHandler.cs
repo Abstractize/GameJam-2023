@@ -23,7 +23,7 @@ namespace Networking
             var sceneObjectProvider = _runner.GetComponent<NetworkSceneManagerDefault>()
                 ?? _runner.gameObject.AddComponent<NetworkSceneManagerDefault>();
 
-            var clientTask = _runner.StartGame(new StartGameArgs
+            Task<StartGameResult> _ = _runner.StartGame(new StartGameArgs
             {
                 GameMode = gameMode,
                 Address = netAddress,

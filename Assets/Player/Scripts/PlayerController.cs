@@ -2,8 +2,6 @@ using System.Collections;
 using Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using StatsController;
-using UnityEngine.UI;
 using static Player.PlayerInputs;
 
 namespace Player
@@ -19,10 +17,9 @@ namespace Player
         private float _waitTime = 15;
         [SerializeField] private bool _isGeneratingMoney = true;
         [SerializeField] private bool _isEnabledStats = true;
-        [SerializeField] public StatsBar StatsBar { get; set; }
+        [SerializeField] private MessageLogger _logger;
 
         private const int EARNING = 10;
-
         private const int DECAY = 1;
 
         public Canvas Hud { get; set; }
@@ -31,12 +28,15 @@ namespace Player
         {
             StartCoroutine(nameof(GenerateMoney));
             StartCoroutine(nameof(EnableStats));
-
-            StatsBar ??= GameObject.FindGameObjectsWithTag("HUD")[0].GetComponent<StatsBar>();
         }
 
-        public void OnFire(InputAction.CallbackContext context)
+        public void OnAction()
             => Action?.Callback.Invoke(this);
+
+        public void OnFire(InputAction.CallbackContext context)
+        {
+
+        }
 
         public void OnLook(InputAction.CallbackContext context)
         {
@@ -51,7 +51,6 @@ namespace Player
             while (_isGeneratingMoney)
             {
                 Wallet.Money += Player.Level * EARNING;
-                StatsBar.Coins.text = Wallet.Money.ToString();
 
                 // Trigger Wallet Animation
 
@@ -63,6 +62,8 @@ namespace Player
         {
             while (_isEnabledStats)
             {
+                yield return new WaitForSeconds(_waitTime / 3);
+
                 int i = Random.Range(1, 5);
 
                 switch (i)
@@ -81,19 +82,20 @@ namespace Player
                         break;
                 }
 
-                StatsBar.hunger.value = Stats.Hunger;
-                StatsBar.fun.value = Stats.Fun;
-                StatsBar.hygiene.value = Stats.Hygiene;
-                StatsBar.sleep.value = Stats.Sleep;
 
-                yield return new WaitForSeconds(_waitTime / 3);
             }
         }
 
         public void BuyItem(Interaction stat, int cost, int amount)
         {
-            if (Wallet.Money >= cost)
+            try
             {
+                if (Wallet.Money < cost)
+                    throw new System.Exception("You don't have enough money to buy this item");
+
+                if (IsStatMaxed(stat))
+                    throw new System.Exception("The stat is at its maximum value");
+
                 Wallet.Money -= cost;
                 switch (stat)
                 {
@@ -114,11 +116,24 @@ namespace Player
                         break;
 
                     case Interaction.Evolution:
-                        Player.Level++;
-                        StatsBar.Level.text = Player.Level.ToString();
+                        Player.Level += amount;
                         break;
                 }
             }
+            catch (System.Exception e)
+            {
+                _logger.LogMessage(e.Message);
+            }
+
         }
+
+        private bool IsStatMaxed(Interaction stat) => stat switch
+        {
+            Interaction.Hunger => Stats.Hunger.IsMax,
+            Interaction.Fun => Stats.Fun.IsMax,
+            Interaction.Hygiene => Stats.Hygiene.IsMax,
+            Interaction.Sleep => Stats.Sleep.IsMax,
+            _ => false,
+        };
     }
 }

@@ -22,7 +22,6 @@ namespace Networking
         [SerializeField] private AudioSource _musicPlayer;
 
         [Header("GUI Settings")]
-        [SerializeField] private StatsBar _statsBar;
         [SerializeField] private GameObject _loadingScreen;
         [SerializeField] private GameObject _hud;
 
@@ -56,7 +55,6 @@ namespace Networking
                     _camera.Follow = player.transform;
                     _controller.gameObject.SetActive(true);
                     _controller.Player = player.GetComponent<Player.NetworkPlayer>();
-                    _controller.StatsBar = _statsBar;
                     _musicPlayer.Play();
 
                     _loadingScreen.SetActive(false);

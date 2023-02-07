@@ -2,6 +2,7 @@ root=true
 
 [*.cs]
 dotnet_diagnostic.IDE0051.severity = none
+dotnet_diagnostic.IDE0044.severity = none
 # Ignore Path
 [**/Photon/**/*.cs]
 generated_code = true
