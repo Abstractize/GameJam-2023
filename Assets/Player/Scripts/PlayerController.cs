@@ -1,4 +1,5 @@
 using System.Collections;
+using Components;
 using Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,12 +10,14 @@ namespace Player
     public partial class PlayerController : MonoBehaviour, IPlayerActions
     {
         [SerializeField] public NetworkPlayer Player { get; set; }
-        [HideInInspector] public GameAction Action { get; set; } = new();
         [HideInInspector] public Wallet Wallet { get; set; } = new();
         [HideInInspector] public PlayerStats Stats { get; set; } = new();
+        [HideInInspector] private Vector2 _mousePosition;
         [SerializeField]
         [Range(10, 100)]
         private float _waitTime = 15;
+        [SerializeField] private ObjectSelector _selector;
+        [SerializeField] private Camera _camera;
         [SerializeField] private bool _isGeneratingMoney = true;
         [SerializeField] private bool _isEnabledStats = true;
         [SerializeField] private MessageLogger _logger;
@@ -30,21 +33,14 @@ namespace Player
             StartCoroutine(nameof(EnableStats));
         }
 
-        public void OnAction()
-            => Action?.Callback.Invoke(this);
-
-        public void OnFire(InputAction.CallbackContext context)
-        {
-
-        }
-
-        public void OnLook(InputAction.CallbackContext context)
-        {
-
-        }
-
         public void OnMove(InputAction.CallbackContext context)
             => (Player.MovementVector = context.ReadValue<Vector2>()).Normalize();
+
+        public void OnSelect(InputAction.CallbackContext context)
+            => _selector.Select(_camera.ScreenPointToRay(_mousePosition));
+
+        public void OnMouse(InputAction.CallbackContext context)
+            => _mousePosition = context.ReadValue<Vector2>();
 
         private IEnumerator GenerateMoney()
         {

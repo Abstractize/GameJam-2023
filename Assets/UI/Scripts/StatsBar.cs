@@ -13,9 +13,7 @@ public class StatsBar : MonoBehaviour
     [SerializeField] private TMP_Text _coins;
     [SerializeField] private TMP_Text _level;
 
-    [Header("Action Button Properties")]
-    [SerializeField] private Button _actionButton;
-    [SerializeField] private TMP_Text _actionText;
+
 
     [Header("Player Properties")]
     [SerializeField] private PlayerController _controller;
@@ -30,8 +28,7 @@ public class StatsBar : MonoBehaviour
         _coins.text = _controller.Wallet.Money.ToString();
         _level.text = _controller.Player.Level.ToString();
 
-        _actionButton.gameObject.SetActive(_controller.Action != null);
-        _actionButton.enabled = _controller.Action != null;
-        _actionText.text = _controller.Action?.Name;
+
+
     }
 }

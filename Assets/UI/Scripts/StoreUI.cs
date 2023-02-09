@@ -20,13 +20,15 @@ namespace UIComponents
         [SerializeField] private Image _itemSprite;
         [SerializeField] private TMP_Text _price;
 
+        [HideInInspector] private string _menuName;
         [HideInInspector] private InventoryObject[] _menu;
 
 
         private int select = 0;
 
-        public void OnActivate(InventoryObject[] menu)
+        public void OnActivate(string menuName, InventoryObject[] menu)
         {
+            _menuName = menuName;
             _menu = menu;
             gameObject.SetActive(true);
             select = 0;
@@ -68,7 +70,7 @@ namespace UIComponents
             _itemName.text = item.Name;
             _itemSprite.sprite = item.Icon;
             _price.text = item.Cost.ToString();
-            _storeName.text = _controller.Action?.StoreName;
+            _storeName.text = _menuName;
         }
     }
 }
