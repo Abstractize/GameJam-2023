@@ -2,10 +2,10 @@ namespace Data
 {
     public enum Interaction
     {
-        Hunger,
-        Fun,
-        Sleep,
-        Hygiene,
-        Evolution
+        Hunger = 0,
+        Fun = 1,
+        Sleep = 2,
+        Hygiene = 3,
+        Evolution = 4
     }
 }
